@@ -1,11 +1,4 @@
-import { useSession } from 'next-auth/react';
-import { useEffect, useState } from 'react';
-import { useRecoilState } from 'recoil';
-import { currentTrackIdState, isPlayingState } from '../atoms/songAtom';
-import useSpotify from '../hooks/useSpotify';
-import useSongInfo from '../hooks/useSongInfo';
-import { debounce } from 'lodash';
-import useCallback from 'react';
+
 import {
   SwitchHorizontalIcon,
   HeartIcon,
@@ -20,6 +13,15 @@ import {
   ReplyIcon,
   VolumeUpIcon
 } from '@heroicons/react/solid';
+
+import { useSession } from 'next-auth/react';
+import { useCallback, useEffect, useState } from 'react';
+import { useRecoilState } from 'recoil';
+import { currentTrackIdState, isPlayingState } from '../atoms/songAtom';
+import useSpotify from '../hooks/useSpotify';
+import useSongInfo from '../hooks/useSongInfo';
+import { debounce } from 'lodash';
+
 
 const Player = () => {
   const spotifyApi = useSpotify();
